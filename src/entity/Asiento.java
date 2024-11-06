@@ -14,4 +14,6 @@ public class Asiento {
     public void ocupar(){
         this.libre = false;
     }
+
+
 }

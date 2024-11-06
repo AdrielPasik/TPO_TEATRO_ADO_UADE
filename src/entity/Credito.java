@@ -1,6 +1,4 @@
-package entity.medioDePago;
-
-import interfaz.MedioDePago;
+package entity;
 
 public class Credito implements MedioDePago {
     private int cuotas;

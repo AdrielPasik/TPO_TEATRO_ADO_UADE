@@ -1,4 +1,4 @@
-package interfaz;
+package entity;
 
 public interface Facturable {
     public double getCosto();

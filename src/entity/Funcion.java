@@ -1,6 +1,5 @@
 package entity;
 
-import interfaz.Facturable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
