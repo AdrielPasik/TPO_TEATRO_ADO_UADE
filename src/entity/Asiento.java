@@ -11,9 +11,8 @@ public class Asiento {
 
     private int idAsiento;
     private Zona tipoZona;
-
     private boolean libre;
-    private boolean disponible;
+
     public void ocupar(){
         this.libre = false;
     }

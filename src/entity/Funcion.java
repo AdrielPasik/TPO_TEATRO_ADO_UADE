@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class Funcion implements Facturable {
+public class Funcion {
 
     private int id;
     private String fechaHora;
@@ -18,7 +18,6 @@ public class Funcion implements Facturable {
     private double precio;
     private List<Asiento> asientos;
 
-    @Override
     public double getCosto() {
         return this.precio;
     }

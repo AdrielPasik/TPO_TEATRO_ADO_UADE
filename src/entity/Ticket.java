@@ -10,7 +10,6 @@ import java.util.List;
 public class Ticket {
 
     private int DNIComprador;
-    private List<Facturable> entradas;
     private MedioDePago medioDePago;
     
 
