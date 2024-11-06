@@ -8,7 +8,7 @@ import lombok.Data;
 public class Asiento {
 
     private int idAsiento;
-    private TipoZona tipoZona;
+    private Zona tipoZona;
     private boolean libre;
 
     public void ocupar(){

@@ -21,7 +21,7 @@ public class TeatroHandler {
     }
 
     private TeatroHandler() {
-        this.teatro = new Teatro("TEATRO COLON", "AV.CORRIENTES 2433, CABA", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.teatro = new Teatro("TEATRO COLON", "AV.CORRIENTES 2433, CABA", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
     }
 
     public void agregarGrupo(String nombre, String detalle){
@@ -32,20 +32,23 @@ public class TeatroHandler {
 
     }
 
-    public void addFuncion(Date fecha, Date horaInicio, double duracion, double precio){
-
+    public void addFuncion(Date fecha, String horaInicio, int duracion, double precio,String nombre){
+        Funcion f = new Funcion(this.getNextIdFuncion(),horaInicio,nombre,duracion,precio,new ArrayList<>());
+        teatro.agregarFuncion(f);
     }
 
     public List<Asiento> asientosLibres(){
-        return null;
+        return teatro.getAsientosDesocupados();
     }
 
     public void ocuparAsiento(int idAsiento){
-
+        teatro.getAsientoById(idAsiento).ocupar();
     }
 
     public void setAsientoFuncion(Funcion funcion) {
-
+        for(int i = 0; i<20;i++){
+            //PODEMOS IMPLEMENTAR PROTOTYPE O HACER VARIOS BUCLES. HAY QUE DECIDIR
+        }
     }
 
 

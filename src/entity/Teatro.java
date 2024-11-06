@@ -3,6 +3,7 @@ package entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -14,6 +15,7 @@ public class Teatro {
     private List<Grupo> grupos;
     private List<Funcion> funciones;
     private List<Ticket> ticketsVendidos;
+    private List<Asiento> asientos;
 
     public void agregarGrupo(Grupo grupo) {
         this.grupos.add(grupo);
@@ -23,5 +25,32 @@ public class Teatro {
         this.funciones.add(funcion);
     }
 
+    public int cantidadAsientosDisponibles(){
+        int c = 0;
+        for(Asiento asiento: this.asientos){
+            if (asiento.isLibre()){
+                c++;
+            }
+        }
+        return c;
+    }
+
+    public Asiento getAsientoById(int id){
+        for(Asiento asiento: this.asientos){
+            if(asiento.getIdAsiento() == id){
+                return asiento;
+            }
+        }
+        return null;
+    }
+    public List<Asiento> getAsientosDesocupados(){
+        List<Asiento> asientos = new ArrayList<>();
+        for(Asiento asiento: this.asientos){
+            if(asiento.isLibre()){
+                asientos.add(asiento);
+            }
+        }
+        return asientos;
+    }
 
 }

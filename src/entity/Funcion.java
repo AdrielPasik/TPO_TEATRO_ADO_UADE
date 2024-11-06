@@ -12,7 +12,7 @@ import java.util.List;
 public class Funcion implements Facturable {
 
     private int id;
-    private LocalDateTime fechaHora;
+    private String fechaHora;
     private String nombre;
     private int duracionMin;
     private double precio;
