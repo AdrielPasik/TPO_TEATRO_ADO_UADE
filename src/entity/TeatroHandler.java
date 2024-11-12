@@ -8,7 +8,6 @@ public class TeatroHandler {
 
     private static TeatroHandler instance;
     private Teatro teatro;
-    private List<Ticket> tickets;
     private static int grupoContador = 0;
     private static int funcionContador = 0;
 
@@ -55,7 +54,7 @@ public class TeatroHandler {
 
     public Ticket generarTicket(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
         Ticket ticket = new Ticket(DNIComprador, medioDePago, idFuncion, idAsiento);
-        tickets.add(ticket); 
+        //tickets.add(ticket);
         return ticket;
     }
 
@@ -64,7 +63,7 @@ public class TeatroHandler {
     }
 
     public List<Ticket> getTickets() {
-        return tickets;
+        return null;
     }
 
     private int getNextIdGrupo(){

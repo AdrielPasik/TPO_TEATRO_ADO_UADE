@@ -2,36 +2,28 @@ package controller;
 
 import entity.*;
 import entity.TeatroHandler;
-import view.View;
 
 import java.util.List;
 
 public class TeatroUserController {
-    private View view;
 
-
-    public TeatroUserController(View view) {
-        this.view = view;
+    public TeatroUserController() {
     }
 
     public void mostrarFunciones() {
         // Suponemos que TeatroHandler tiene un método getFunciones()
         List<Funcion> funciones = TeatroHandler.getInstance().getFunciones();
-        view.mostrarFunciones(funciones);
     }
 
-    public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
+    /*public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
     TeatroHandler handler = TeatroHandler.getInstance();
     handler.ocuparAsiento(idFuncion, idAsiento);
     Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
-    view.mostrarMensaje("Entrada comprada con éxito para la función " + idFuncion);
-    view.mostrarTicket(ticket);
-}
+    }*/
 
-    public void mostrarAsientosLibres(int idFuncion) {
+    /*public void mostrarAsientosLibres(int idFuncion) {
         List<Asiento> asientosLibres = TeatroHandler.getInstance().asientosLibres(idFuncion);//hace falta ingresar la funcion para ver los asientos disponiblesd e cada funcion? porque en en handler/Teatro no lo pide el metodo como parametro
-        view.mostrarAsientos(asientosLibres);
-    }
-
+        //view.mostrarAsientos(asientosLibres);
+    }*/
 
 }
