@@ -2,7 +2,7 @@ package controller;
 
 import entity.Grupo;
 import entity.Ticket;
-import handler.TeatroHandler;
+import entity.TeatroHandler;
 import view.View;
 
 import java.util.Date;

@@ -1,6 +1,4 @@
-package handler;
-
-import entity.*;
+package entity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,11 +28,14 @@ public class TeatroHandler {
     }
 
     public void asignarGrupoAFuncion(int idGrupo, int idFuncion){
+        Grupo grupo = teatro.getGrupoById(idGrupo);
+        Funcion funcion = teatro.getFuncionByid(idFuncion);
+        funcion.setGrupo(grupo);
 
     }
 
     public void addFuncion(Date fecha, String horaInicio, int duracion, double precio,String nombre){
-        Funcion f = new Funcion(this.getNextIdFuncion(),horaInicio,nombre,duracion,precio,new ArrayList<>());
+        Funcion f = new Funcion(this.getNextIdFuncion(),horaInicio,nombre,duracion,precio,new ArrayList<>(),null);
         teatro.agregarFuncion(f);
     }
 

@@ -15,6 +15,8 @@ public class View {
         return instance;
     }
 
+
+
     // pattern matching
     /*public void mostrarMenu() {
         Opcion opcion = pedirOpcion();

@@ -17,6 +17,7 @@ public class Funcion {
     private int duracionMin;
     private double precio;
     private List<Asiento> asientos;
+    private Grupo grupo;
 
     public double getCosto() {
         return this.precio;

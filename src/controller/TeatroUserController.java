@@ -1,7 +1,7 @@
 package controller;
 
 import entity.*;
-import handler.TeatroHandler;
+import entity.TeatroHandler;
 import view.View;
 
 import java.util.List;

@@ -53,4 +53,21 @@ public class Teatro {
         return asientos;
     }
 
+    public Grupo getGrupoById(int id){
+        for (int i = 0; i<grupos.size();i++){
+            if(grupos.get(i).getId() == id){
+                return grupos.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Funcion getFuncionByid(int id){
+        for (int i = 0; i<funciones.size();i++){
+            if(grupos.get(i).getId() == id){
+                return funciones.get(i);
+            }
+        }
+    }
+
 }
