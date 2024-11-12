@@ -29,5 +29,13 @@ public class TeatroAdminController {
     }
 
     public void mostrarListaTicket() {
+        List<Ticket> tickets = TeatroHandler.getInstance().getTickets();
+        if (tickets.isEmpty()) {
+            view.mostrarMensaje("No hay tickets disponibles.");
+        } else {
+            for (Ticket ticket : tickets) {
+                view.mostrarTicket(ticket);
+            }
+        }
     }
 }
