@@ -20,12 +20,13 @@ public class TeatroUserController {
         view.mostrarFunciones(funciones);
     }
 
-    public void comprarEntrada(MedioDePago medioDePago, int idFuncion, int idAsiento) {
-        TeatroHandler.getInstance().ocuparAsiento(idFuncion, idAsiento);
-        Ticket ticket = TeatroHandler.getInstance().generarTicket(medioDePago, idFuncion, idAsiento);
-        view.mostrarMensaje("Entrada comprada con éxito para la función " + idFuncion);
-        view.mostrarTicket(ticket);
-    }
+    public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
+    TeatroHandler handler = TeatroHandler.getInstance();
+    handler.ocuparAsiento(idFuncion, idAsiento);
+    Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
+    view.mostrarMensaje("Entrada comprada con éxito para la función " + idFuncion);
+    view.mostrarTicket(ticket);
+}
 
     public void mostrarAsientosLibres(int idFuncion) {
         List<Asiento> asientosLibres = TeatroHandler.getInstance().asientosLibres(idFuncion);//hace falta ingresar la funcion para ver los asientos disponiblesd e cada funcion? porque en en handler/Teatro no lo pide el metodo como parametro
