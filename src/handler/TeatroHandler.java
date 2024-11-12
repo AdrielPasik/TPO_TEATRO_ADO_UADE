@@ -51,7 +51,9 @@ public class TeatroHandler {
         }
     }
 
-
+    public List<Ticket> getTickets() {
+        // return tickets
+    }
 
     private int getNextIdGrupo(){
         return grupoContador++;
