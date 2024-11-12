@@ -52,8 +52,8 @@ public class TeatroHandler {
         }
     }
 
-    public Ticket generarTicket(int dniComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
-        Ticket ticket = new Ticket(dniComprador, medioDePago, idFuncion, idAsiento);
+    public Ticket generarTicket(MedioDePago medioDePago, int idFuncion, int idAsiento) {
+        Ticket ticket = new Ticket(medioDePago, idFuncion, idAsiento);
         tickets.add(ticket);
         return ticket;
     }
