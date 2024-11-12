@@ -20,9 +20,11 @@ public class TeatroUserController {
         view.mostrarFunciones(funciones);
     }
 
-    public void comprarEntrada(int idFuncion, int idAsiento) {
-        TeatroHandler.getInstance().ocuparAsiento(idAsiento);
+    public void comprarEntrada(MedioDePago medioDePago, int idFuncion, int idAsiento) {
+        TeatroHandler.getInstance().ocuparAsiento(idFuncion, idAsiento);
+        Ticket ticket = TeatroHandler.getInstance().generarTicket(medioDePago, idFuncion, idAsiento);
         view.mostrarMensaje("Entrada comprada con éxito para la función " + idFuncion);
+        view.mostrarTicket(ticket);
     }
 
     public void mostrarAsientosLibres(int idFuncion) {
