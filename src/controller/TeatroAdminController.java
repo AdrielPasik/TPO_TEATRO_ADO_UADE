@@ -1,5 +1,7 @@
 package controller;
 
+import entity.Grupo;
+import entity.Ticket;
 import handler.TeatroHandler;
 import view.View;
 
@@ -28,6 +30,17 @@ public class TeatroAdminController {
         view.mostrarMensaje("Grupo asignado a la función con éxito.");
     }
 
+    public void mostrarListaGrupos() {
+        List<Grupo> grupos = TeatroHandler.getInstance().getGrupos();
+        if (grupos.isEmpty()) {
+            view.mostrarMensaje("No hay grupos disponibles.");
+        } else {
+            for (Grupo grupo : grupos) {
+                view.mostrarGrupo(grupo);
+            }
+        }
+    }
+
     public void mostrarListaTicket() {
         List<Ticket> tickets = TeatroHandler.getInstance().getTickets();
         if (tickets.isEmpty()) {
@@ -38,4 +51,25 @@ public class TeatroAdminController {
             }
         }
     }
+
+    public void modificarFuncion(int idFuncion, Date nuevaFecha, String nuevoHoraInicio, int nuevaDuracion, double nuevoPrecio, String nuevoNombre) {
+        boolean exito = TeatroHandler.getInstance().modificarFuncion(idFuncion, nuevaFecha, nuevoHoraInicio, nuevaDuracion, nuevoPrecio, nuevoNombre);
+        if (exito) {
+            view.mostrarMensaje("Función modificada con éxito.");
+        } else {
+            view.mostrarMensaje("No se pudo modificar la función. Verifique el ID.");
+        }
+    }
+
+    public void eliminarFuncion(int idFuncion) {
+        boolean exito = TeatroHandler.getInstance().eliminarFuncion(idFuncion);
+        if (exito) {
+            view.mostrarMensaje("Función eliminada con éxito.");
+        } else {
+            view.mostrarMensaje("No se pudo eliminar la función. Verifique el ID.");
+        }
+    }
+
+
+
 }
