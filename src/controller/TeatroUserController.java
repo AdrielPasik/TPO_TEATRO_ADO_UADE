@@ -32,4 +32,6 @@ public class TeatroUserController {
         List<Asiento> asientosLibres = TeatroHandler.getInstance().asientosLibres(idFuncion);//hace falta ingresar la funcion para ver los asientos disponiblesd e cada funcion? porque en en handler/Teatro no lo pide el metodo como parametro
         view.mostrarAsientos(asientosLibres);
     }
+
+
 }
