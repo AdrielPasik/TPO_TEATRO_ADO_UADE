@@ -4,6 +4,7 @@ import controller.TeatroAdminController;
 import controller.TeatroUserController;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
@@ -56,16 +57,20 @@ public class Menu {
         while (!salir) {
             System.out.println("""
                     1. Ver funciones disponibles
-                    2. Comprar entrada
-                    3. Volver
+                    2. Ver Asientos disponibles
+                    3. Seleccionar entrada
+                    4. Pagar
+                    5. Volver
                     """);
 
-            int opcion = pedirOpcion(scanner, 1, 3);
+            int opcion = pedirOpcion(scanner, 1, 5);
 
             switch (opcion) {
                 case 1 -> verFuncionesDisponibles();
-                case 2 -> comprarEntrada();
-                case 3 -> salir = true;
+                case 2 -> asientosDisponible();
+                case 3 -> seleccionarEntrada();
+                case 4 -> pagar();
+                case 5 -> salir = true;
                 default -> System.out.println("Opción no válida");
             }
         }
@@ -118,12 +123,30 @@ public class Menu {
 
     }
 
-    private void comprarEntrada() {
+    private void asientosDisponible() {
+        Scanner scanner = new Scanner(System.in);
+        int idFuncion = scanner.nextInt();
+        System.out.println("Lista de asientos disponibles...");
+        List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncion);
+        System.out.println(asientosLibres);
+        scanner.close();
+    }
+
+    private void seleccionarEntrada() {
         // Llamada al controlador para comprar entrada
         // Ejemplo: TeatroController.getInstance().comprarEntrada();
 
         System.out.println("Proceso de compra de entrada...");
         // Aquí se implementaría el flujo de compra
+    }
+
+    private void pagar() {
+        Scanner scanner = new Scanner(System.in);
+        int idFuncion = scanner.nextInt();
+        System.out.println("Lista de asientos disponibles...");
+        List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncion);
+        System.out.println(asientosLibres);
+        scanner.close();
     }
 
     private void agregarFuncion() {
