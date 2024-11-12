@@ -2,7 +2,9 @@ package controller;
 
 import entity.*;
 import entity.TeatroHandler;
+import view.FuncionView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeatroUserController {
@@ -10,9 +12,13 @@ public class TeatroUserController {
     public TeatroUserController() {
     }
 
-    public void mostrarFunciones() {
-        // Suponemos que TeatroHandler tiene un método getFunciones()
+    public List<FuncionView> mostrarFunciones() {
+        List<FuncionView> funcionesView = new ArrayList<FuncionView>();
         List<Funcion> funciones = TeatroHandler.getInstance().getFunciones();
+        for (Funcion funcion : funciones) {
+            funcionesView.add(FuncionView.map(funcion));
+        }
+        return funcionesView;
     }
 
     /*public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {

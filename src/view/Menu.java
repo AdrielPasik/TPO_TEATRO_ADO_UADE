@@ -1,12 +1,20 @@
 package view;
 
+import controller.TeatroAdminController;
+import controller.TeatroUserController;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
     private static Menu instance;
+    private TeatroUserController teatroUserController;
+    private TeatroAdminController teatroAdminController;
 
     private Menu() {
+        teatroUserController = new TeatroUserController();
+        teatroAdminController = new TeatroAdminController();
     }
 
     public static Menu getInstance() {
@@ -102,11 +110,12 @@ public class Menu {
     }
 
     private void verFuncionesDisponibles() {
-        // Llamada al controlador para obtener las funciones disponibles
-        // Ejemplo: TeatroController.getInstance().listarFunciones();
-
         System.out.println("Mostrando lista de funciones disponibles...");
-        // Aquí se mostrarían las funciones disponibles
+
+        List<FuncionView> a =  teatroUserController.mostrarFunciones();
+
+        System.out.println(a);
+
     }
 
     private void comprarEntrada() {
