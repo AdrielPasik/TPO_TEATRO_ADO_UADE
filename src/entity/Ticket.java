@@ -11,6 +11,6 @@ public class Ticket {
 
     private int DNIComprador;
     private MedioDePago medioDePago;
-    
-
+    private int idFuncion; 
+    private int idAsiento;
 }
