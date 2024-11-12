@@ -52,9 +52,9 @@ public class TeatroHandler {
         }
     }
 
-    public Ticket generarTicket(MedioDePago medioDePago, int idFuncion, int idAsiento) {
-        Ticket ticket = new Ticket(medioDePago, idFuncion, idAsiento);
-        tickets.add(ticket);
+    public Ticket generarTicket(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
+        Ticket ticket = new Ticket(DNIComprador, medioDePago, idFuncion, idAsiento);
+        tickets.add(ticket); 
         return ticket;
     }
 
