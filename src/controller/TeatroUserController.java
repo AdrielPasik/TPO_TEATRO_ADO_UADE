@@ -2,10 +2,12 @@ package controller;
 
 import entity.*;
 import entity.TeatroHandler;
+import view.AsientoView;
 import view.FuncionView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TeatroUserController {
 
@@ -27,9 +29,18 @@ public class TeatroUserController {
     Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
     }*/
 
-    /*public void mostrarAsientosLibres(int idFuncion) {
-        List<Asiento> asientosLibres = TeatroHandler.getInstance().asientosLibres(idFuncion);//hace falta ingresar la funcion para ver los asientos disponiblesd e cada funcion? porque en en handler/Teatro no lo pide el metodo como parametro
-        //view.mostrarAsientos(asientosLibres);
-    }*/
+    public List<AsientoView> mostrarAsientosLibres(int idFuncion) {
+        List<AsientoView> asientosView = new ArrayList<>();
+        Funcion funcion = TeatroHandler.getInstance().getFuncionByid(idFuncion);
+        List<Asiento> asientosLibres = funcion.asientoLibre();
+
+        for (Asiento asiento : asientosLibres) {
+            asientosView.add(AsientoView.map(asiento));
+        }
+
+        return asientosView;
+    }
+
+
 
 }
