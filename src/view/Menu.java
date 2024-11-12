@@ -1,16 +1,16 @@
 package view;
 
-public class View {
+public class Menu {
 
-    private static View instance;
+    private static Menu instance;
 
-    private View() {
+    private Menu() {
 
     }
 
-    public static View getInstance() {
+    public static Menu getInstance() {
         if (instance == null) {
-            instance = new View();
+            instance = new Menu();
         }
         return instance;
     }

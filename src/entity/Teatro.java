@@ -68,6 +68,7 @@ public class Teatro {
                 return funciones.get(i);
             }
         }
+        return null;
     }
 
 }

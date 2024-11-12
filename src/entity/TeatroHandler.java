@@ -59,6 +59,10 @@ public class TeatroHandler {
         return ticket;
     }
 
+    public List<Funcion> getFunciones(){
+        return teatro.getFunciones();
+    }
+
     public List<Ticket> getTickets() {
         return tickets;
     }
