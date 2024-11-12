@@ -52,8 +52,8 @@ public class TeatroAdminController {
         }
     }
 
-    public void modificarFuncion(int idFuncion, Date nuevaFecha, String nuevoHoraInicio, int nuevaDuracion, double nuevoPrecio, String nuevoNombre) {
-        boolean exito = TeatroHandler.getInstance().modificarFuncion(idFuncion, nuevaFecha, nuevoHoraInicio, nuevaDuracion, nuevoPrecio, nuevoNombre);
+    public void modificarFuncion(int idFuncion, String fechaHora, String nombre, int duracionMin, double precio) {
+        boolean exito = TeatroHandler.getInstance().modificarFuncion(idFuncion, fechaHora, nombre, duracionMin, precio);
         if (exito) {
             view.mostrarMensaje("Función modificada con éxito.");
         } else {
