@@ -64,7 +64,7 @@ public class Teatro {
 
     public Funcion getFuncionByid(int id){
         for (int i = 0; i<funciones.size();i++){
-            if(grupos.get(i).getId() == id){
+            if(funciones.get(i).getId() == id){
                 return funciones.get(i);
             }
         }

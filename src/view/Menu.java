@@ -125,6 +125,7 @@ public class Menu {
 
     private void asientosDisponible() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingresa id de la funcion");
         int idFuncion = scanner.nextInt();
         System.out.println("Lista de asientos disponibles...");
         List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncion);
