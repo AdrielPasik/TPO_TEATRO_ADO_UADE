@@ -4,7 +4,8 @@ public class Tertulia extends Zona{
     public Tertulia() {
         super();
     }
-    public double calcularPrecio(){
-        return this.getPrecio()*1.1;
+    public double calcularPrecio(double precio){
+        return precio*1.1;
     }
+
 }

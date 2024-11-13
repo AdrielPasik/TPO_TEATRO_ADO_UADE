@@ -5,6 +5,6 @@ public class Cazuela extends Zona{
         super();
     }
     public double calcularPrecio(double precio){
-        return precio*1.8;
+        return precio*1.3;
     }
 }

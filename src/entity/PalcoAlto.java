@@ -4,7 +4,7 @@ public class PalcoAlto extends Zona{
     public PalcoAlto() {
         super();
     }
-    public double calcularPrecio(){
-        return this.getPrecio()*1.5;
+    public double calcularPrecio(double precio){
+        return precio*1.7;
     }
 }

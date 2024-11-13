@@ -4,7 +4,8 @@ public class Paraiso extends Zona{
     public Paraiso() {
         super();
     }
-    public double calcularPrecio(){
-        return this.getPrecio()*1.3;
+    public double calcularPrecio(double precio){
+        return precio*1.2;
     }
+
 }
