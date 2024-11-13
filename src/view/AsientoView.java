@@ -18,10 +18,9 @@ public class AsientoView {
 
     @Override
     public String toString() {
-        return "AsientoView{" +
-                "idAsiento=" + idAsiento +
-                ", tipoZona=" + tipoZona +
-                ", libre=" + libre +
-                '}';
+        return "idAsiento=" + idAsiento +
+                ", tipoZona=" + tipoZona.getClass().getName().substring(7) +
+                ", libre=" + libre
+                ;
     }
 }

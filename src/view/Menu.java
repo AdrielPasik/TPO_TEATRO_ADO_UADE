@@ -125,12 +125,13 @@ public class Menu {
 
     private void asientosDisponible() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingresa id de la funcion");
-        int idFuncion = scanner.nextInt();
+        System.out.println("Ingresa id de la funcion:");
+        int idFuncionn = scanner.nextInt();
         System.out.println("Lista de asientos disponibles...");
-        List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncion);
-        System.out.println(asientosLibres);
-        scanner.close();
+        List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncionn);
+        for (AsientoView asiento : asientosLibres) {
+            System.out.println(asiento);
+        }
     }
 
     private void seleccionarEntrada() {
