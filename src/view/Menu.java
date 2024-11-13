@@ -35,7 +35,7 @@ public class Menu {
 
         while (!salir) {
             System.out.println("""
-                    1. Usuario
+                    \n1. Usuario
                     2. Administrador
                     3. Cerrar sesión
                     """);
@@ -60,7 +60,7 @@ public class Menu {
 
         while (!salir) {
             System.out.println("""
-                    1. Ver funciones disponibles
+                    \n1. Ver funciones disponibles
                     2. Ver Asientos disponibles
                     3. Seleccionar entrada
                     4. Pagar
@@ -86,7 +86,7 @@ public class Menu {
 
         while (!salir) {
             System.out.println("""
-                    1. Agregar función
+                    \n1. Agregar función
                     2. Mostrar tickets vendidos
                     3. Asignar grupo a función
                     4. Volver
