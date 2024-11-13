@@ -19,7 +19,7 @@ public class GrupoView {
     @Override
     public String toString() {
         return
-                "id=" + id +
+                "\nid=" + id +
                 ", nombre : '" + nombre + '\'' +
                 ", descripcion :'" + descripcion + '\'' +
                 '}';

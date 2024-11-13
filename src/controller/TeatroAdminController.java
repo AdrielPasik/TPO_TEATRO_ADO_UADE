@@ -1,8 +1,10 @@
 package controller;
 
+import entity.Funcion;
 import entity.Grupo;
 import entity.Ticket;
 import entity.TeatroHandler;
+import view.FuncionView;
 import view.GrupoView;
 import view.TicketView;
 
@@ -34,6 +36,15 @@ public class TeatroAdminController {
             grupoVIews.add(GrupoView.map(grupo));
         }
         return grupoVIews;
+    }
+
+    public List<FuncionView> getListaFuncion() {
+        List<Funcion> funciones = TeatroHandler.getInstance().getFunciones();
+        List<FuncionView> funcionViews = new ArrayList<>();
+        for (Funcion funcion : funciones) {
+            funcionViews.add(FuncionView.map(funcion));
+        }
+        return funcionViews;
     }
 
     public List<TicketView> getListaTicket() {

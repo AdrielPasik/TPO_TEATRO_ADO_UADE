@@ -232,6 +232,7 @@ public class Menu {
     private void asignarGrupoFuncion() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println(teatroAdminController.getListaFuncion());
         System.out.print("Ingrese el id de la función: ");
         int idFuncion = scanner.nextInt();
 
