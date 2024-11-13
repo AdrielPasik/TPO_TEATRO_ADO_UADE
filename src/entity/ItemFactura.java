@@ -8,4 +8,12 @@ public class ItemFactura {
 
     private int idAsiento;
     private Funcion funcion;
+
+    @Override
+    public String toString() {
+        return
+                "Funcion=" + funcion.getNombre() +
+                ", Horario inicio: " + funcion.getFechaHora()+
+                "idAsiento=" + idAsiento ;
+    }
 }
