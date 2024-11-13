@@ -63,6 +63,8 @@ public class TeatroHandler {
         teatro.getAsientoById(idAsiento).ocupar();
     }
 
+
+
     public void setAsientoFuncion(Funcion funcion) {
         List<Asiento> asientos = new ArrayList<>();
         int idAsiento = 0; // Para dar un identificador único a cada asiento.
