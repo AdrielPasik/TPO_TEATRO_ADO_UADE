@@ -59,12 +59,6 @@ public class TeatroHandler {
         return teatro.getAsientosDesocupados();
     }
 
-    public void ocuparAsiento(int idAsiento){
-        teatro.getAsientoById(idAsiento).ocupar();
-    }
-
-
-
     public void setAsientoFuncion(Funcion funcion) {
         List<Asiento> asientos = new ArrayList<>();
         int idAsiento = 0; // Para dar un identificador único a cada asiento.
@@ -84,11 +78,32 @@ public class TeatroHandler {
         // Asignamos los asientos creados a la función.
         funcion.setAsientos(asientos);
     }
-    /*public Ticket generarTicket(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
-        Ticket ticket = new Ticket(DNIComprador, medioDePago, idFuncion, idAsiento);
-        //tickets.add(ticket);
+   public Ticket generarTicket(int DNIComprador, int idMediopago, int cantCuota, int idFuncion, int idAsiento) {
+        
+        MedioDePago medioDePago = null;
+
+        switch (idMediopago) {
+            case 1 -> medioDePago = new Efectivo();
+            case 2 -> medioDePago = new Debito();
+            case 3 -> medioDePago = new Credito(cantCuota);
+            default -> {
+            }
+        }
+
+       Ticket ticket = new Ticket(DNIComprador, medioDePago, this.cache);
+
+       //Ocupar Asientos
+       for (ItemFactura item : this.cache) {
+           this.ocuparAsiento(item.getFuncion().getId(), item.getIdAsiento());
+       }
+
         return ticket;
-    }*/
+    }
+
+    public void ocuparAsiento(int idFuncion, int idAsiento){
+        Funcion funcion = teatro.getFuncionByid(idFuncion);
+        funcion.ocuparAsiento(idAsiento);
+    }
 
     public List<Funcion> getFunciones(){
         return teatro.getFunciones();

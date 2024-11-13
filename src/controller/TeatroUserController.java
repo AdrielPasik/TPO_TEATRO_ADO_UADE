@@ -4,6 +4,7 @@ import entity.*;
 import entity.TeatroHandler;
 import view.AsientoView;
 import view.FuncionView;
+import view.TicketView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +40,10 @@ public class TeatroUserController {
         return TeatroHandler.getInstance().selecionarEntrada(idFuncion, idAsiento);
     }
 
-    /*public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
-    TeatroHandler handler = TeatroHandler.getInstance();
-    handler.ocuparAsiento(idFuncion, idAsiento);
-    Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
+    /*public TicketView generarTicket(int DNIComprador, int idMedioPago, int idFuncion, int idAsiento) {
+        TeatroHandler handler = TeatroHandler.getInstance();
+        handler.ocuparAsiento(idFuncion, idAsiento);
+        Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
     }*/
 
 
