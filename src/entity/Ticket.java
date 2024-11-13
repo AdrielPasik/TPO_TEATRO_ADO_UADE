@@ -3,6 +3,7 @@ package entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -16,7 +17,7 @@ public class Ticket {
     public Ticket(int DNIComprador, MedioDePago medioDePago, List<ItemFactura> itemFacturas) {
         this.DNIComprador = DNIComprador;
         this.medioDePago = medioDePago;
-        this.itemFacturas = itemFacturas;
+        this.itemFacturas = new ArrayList<>(itemFacturas);
         this.total = this.calcularTotal();
     }
 

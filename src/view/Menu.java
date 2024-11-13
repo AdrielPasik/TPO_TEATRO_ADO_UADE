@@ -167,13 +167,11 @@ public class Menu {
         if(idMedioPago == 3){
             System.out.print("Eliga la cantidad de cuotas (2,3,6) :");
             cantCuotas = scanner.nextInt();
-            while(cantCuotas != 2 || cantCuotas != 3 || cantCuotas != 6) {
-                System.out.println("Error, eliga la cantidad de cuotas (2,3,6) :");
-                cantCuotas = scanner.nextInt();
             }
-        }
 
+        System.out.println("------------Tiket Generado---------------");
         System.out.println(teatroUserController.generarTicket(dni,idMedioPago,cantCuotas));
+        System.out.println("-----------------------------------------");
     }
 
     private void agregarFuncion() {

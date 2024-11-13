@@ -15,19 +15,19 @@ public class TicketView {
     private int DNIComprador;
     private MedioDePago medioDePago;
     private List<ItemFactura> itemFacturas;
+    private double total;
 
-    // Método para mapear un Ticket a un TicketView
     public static TicketView map(Ticket ticket) {
-        return new TicketView(ticket.getDNIComprador(), ticket.getMedioDePago(), ticket.getItemFacturas());
+        return new TicketView(ticket.getDNIComprador(), ticket.getMedioDePago(), ticket.getItemFacturas(), ticket.getTotal());
     }
 
     @Override
     public String toString() {
 
-        return "TicketView{" +
-                "DNIComprador=" + DNIComprador +
-                ", medioDePago=" + medioDePago +
-                ", itemFacturas=" + itemFacturas +
-                '}';
+        return
+                "DNIComprador : " + DNIComprador +
+                ", medioDePago : " + medioDePago.getClass().getName().substring(7) +
+                ", \nitemFacturas : " + itemFacturas +
+                ", \ntotal : " + total;
     }
 }

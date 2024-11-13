@@ -12,8 +12,8 @@ public class ItemFactura {
     @Override
     public String toString() {
         return
-                "Funcion=" + funcion.getNombre() +
-                ", Horario inicio: " + funcion.getFechaHora()+
-                "idAsiento=" + idAsiento ;
+                "\nFuncion : " + funcion.getNombre() +
+                ", Horario inicio : " + funcion.getFechaHora()+
+                "idAsiento : " + idAsiento ;
     }
 }
