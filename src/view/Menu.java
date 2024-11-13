@@ -3,6 +3,10 @@ package view;
 import controller.TeatroAdminController;
 import controller.TeatroUserController;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -189,12 +193,33 @@ public class Menu {
             }
             duracion = scanner.nextInt();
         } while (duracion <= 0);
+        scanner.nextLine();
 
-        System.out.print("Ingrese el nombre del grupo asignado a la función: ");
-        String grupo = scanner.next();
+        // Pedir la fecha y hora de la función
+        LocalDateTime fechaHora = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        // Llamada al controlador para agregar la función
-        // Ejemplo: TeatroController.getInstance().agregarFuncion(nombre, duracion, grupo);
+        do {
+            System.out.print("Ingrese la fecha y hora de la función (formato: dd/MM/yyyy HH:mm): ");
+            String fechaHoraStr = scanner.nextLine();
+            try {
+                fechaHora = LocalDateTime.parse(fechaHoraStr, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato de fecha y hora incorrecto. Intente de nuevo.");
+            }
+        } while (fechaHora == null);
+
+        double precio;
+        do {
+            System.out.print("Ingrese el precio de la función: ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Debe ingresar un número válido.");
+                scanner.next(); // Limpiar entrada inválida
+            }
+            precio = scanner.nextDouble();
+        } while (precio <= 0);
+
+        teatroAdminController.addFuncion(fechaHora,duracion,precio,nombre);
 
         System.out.println("Función agregada con éxito.");
     }

@@ -1,5 +1,6 @@
 package entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,7 +36,7 @@ public class TeatroHandler {
 
     }
 
-    public void addFuncion(Date fecha, String horaInicio, int duracion, double precio,String nombre){
+    public void addFuncion(LocalDateTime horaInicio, int duracion, double precio, String nombre){
         Funcion f = new Funcion(this.getNextIdFuncion(),horaInicio,nombre,duracion,precio,new ArrayList<>(),null);
         this.setAsientoFuncion(f);
         teatro.agregarFuncion(f);

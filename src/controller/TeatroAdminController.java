@@ -4,6 +4,7 @@ import entity.Grupo;
 import entity.Ticket;
 import entity.TeatroHandler;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class TeatroAdminController {
     public TeatroAdminController() {
     }
 
-    public void addFuncion(Date fecha, String horaInicio, int duracion, double precio, String nombre) {
-        TeatroHandler.getInstance().addFuncion(fecha, horaInicio, duracion, precio, nombre);
+    public void addFuncion(LocalDateTime fechaHora, int duracion, double precio, String nombre) {
+        TeatroHandler.getInstance().addFuncion(fechaHora, duracion, precio, nombre);
     }
 
     public void addGrupo(String nombre, String detalle) {

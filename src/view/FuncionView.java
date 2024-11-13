@@ -6,6 +6,7 @@ import entity.Grupo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Data
@@ -20,19 +21,19 @@ public class FuncionView {
 
 
     public static FuncionView map(Funcion f){
-        return new FuncionView(f.getId(),f.getFechaHora(),f.getNombre(),f.getDuracionMin(),f.getPrecio(),f.getGrupo());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return new FuncionView(f.getId(),f.getFechaHora().format(formatter),f.getNombre(),f.getDuracionMin(),f.getPrecio(),f.getGrupo());
     }
 
     @Override
     public String toString() {
-        return "FuncionView{" +
-                "id=" + id +
+        return
+                "\nid=" + id +
                 ", fechaHora='" + fechaHora + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", duracionMin=" + duracionMin +
                 ", precio=" + precio +
-                ", grupo=" + grupo +
-                '}';
+                ", grupo=" + grupo;
     }
 
 }

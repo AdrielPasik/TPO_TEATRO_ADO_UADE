@@ -12,7 +12,7 @@ import java.util.List;
 public class Funcion {
 
     private int id;
-    private String fechaHora;
+    private LocalDateTime fechaHora;
     private String nombre;
     private int duracionMin;
     private double precio;

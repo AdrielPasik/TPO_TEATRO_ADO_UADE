@@ -1,6 +1,8 @@
 import entity.TeatroHandler;
 import view.Menu;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Main {
@@ -11,6 +13,9 @@ public class Main {
     }
 
     public static void cargarDatos(){
-        TeatroHandler.getInstance().addFuncion(new Date(),"54545",45454,454545,"afafaf");
+        String fechaStr = "2024-11-13 14:30";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime fecha = LocalDateTime.parse(fechaStr, formatter);
+        TeatroHandler.getInstance().addFuncion(fecha, 120, 1000, "El Chaplin");
     }
 }
