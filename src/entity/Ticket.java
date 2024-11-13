@@ -17,14 +17,16 @@ public class Ticket {
         this.DNIComprador = DNIComprador;
         this.medioDePago = medioDePago;
         this.itemFacturas = itemFacturas;
-
+        this.total = this.calcularTotal();
     }
 
     private double calcularTotal(){
         double total = 0;
         for (ItemFactura item : itemFacturas) {
-            total += item.getFuncion().getPrecio() ;
+            double precioFuncion = item.getFuncion().getPrecio();
+            int idAsiento = item.getIdAsiento();
+            total +=  item.getFuncion().obtenerAsiento(idAsiento).costo(precioFuncion);
         }
-        return 0;
+        return total;
     }
 }

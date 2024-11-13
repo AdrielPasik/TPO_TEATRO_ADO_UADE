@@ -17,5 +17,8 @@ public class Asiento {
         this.libre = false;
     }
 
+    public double costo(double precioFuncion){
+        return this.tipoZona.calcularPrecio(precioFuncion);
+    }
 
 }
