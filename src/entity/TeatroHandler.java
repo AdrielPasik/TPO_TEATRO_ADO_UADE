@@ -44,17 +44,20 @@ public class TeatroHandler {
 
     public boolean selecionarEntrada(int idFuncion, int idAsiento){
 
-        boolean resultado;
-        for(ItemFactura item: this.cache){
-            if (item.getFuncion().getId() == idFuncion && item.getIdAsiento() == idAsiento) {
-                resultado = false;
-                break;
-            }
-        }
+        boolean resultado = true;
+
         Funcion funcion = this.getFuncionByid(idFuncion);
         resultado = funcion.estaLibre(idAsiento);
 
-        this.cache.add(new ItemFactura(idAsiento, funcion));
+        for(ItemFactura item: this.cache){
+            if (item.getFuncion().getId() == idFuncion && item.getIdAsiento() == idAsiento) {
+                resultado = false;
+            }
+        }
+
+        if(resultado){
+            this.cache.add(new ItemFactura(idAsiento, funcion));
+        }
 
         return resultado;
     }

@@ -28,7 +28,7 @@ public class FuncionView {
     @Override
     public String toString() {
         return
-                "\nid : " + id +
+                "\n\nid : " + id +
                 ", fechaHora : '" + fechaHora + '\'' +
                 ", nombre : '" + nombre + '\'' +
                 ", duracionMin : " + duracionMin +

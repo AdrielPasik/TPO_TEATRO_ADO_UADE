@@ -13,6 +13,9 @@ public class GrupoView {
 
 
     public static GrupoView map(Grupo grupo) {
+        if (grupo == null) {
+            return null;
+        }
         return new GrupoView(grupo.getId(), grupo.getNombre(), grupo.getDescripcion());
     }
 
