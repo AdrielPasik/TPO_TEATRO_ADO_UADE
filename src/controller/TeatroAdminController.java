@@ -3,9 +3,11 @@ package controller;
 import entity.Grupo;
 import entity.Ticket;
 import entity.TeatroHandler;
+import view.GrupoView;
+import view.TicketView;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeatroAdminController {
@@ -25,26 +27,22 @@ public class TeatroAdminController {
         TeatroHandler.getInstance().asignarGrupoAFuncion(idGrupo, idFuncion);
     }
 
-    /*public void mostrarListaGrupos() {
+    public List<GrupoView> getListaGrupos() {
         List<Grupo> grupos = TeatroHandler.getInstance().getGrupos();
-        if (grupos.isEmpty()) {
-            view.mostrarMensaje("No hay grupos disponibles.");
-        } else {
-            for (Grupo grupo : grupos) {
-                view.mostrarGrupo(grupo);
-            }
+        List<GrupoView> grupoVIews = new ArrayList<>();
+        for (Grupo grupo : grupos) {
+            grupoVIews.add(GrupoView.map(grupo));
         }
-    }*/
+        return grupoVIews;
+    }
 
-    public void mostrarListaTicket() {
+    public List<TicketView> getListaTicket() {
+        List<TicketView> ticketView = new ArrayList<>();
         List<Ticket> tickets = TeatroHandler.getInstance().getTickets();
-        if (tickets.isEmpty()) {
-            //view.mostrarMensaje("No hay tickets disponibles.");
-        } else {
-            for (Ticket ticket : tickets) {
-                //view.mostrarTicket(ticket);
-            }
+        for (Ticket ticket : tickets) {
+            ticketView.add(TicketView.map(ticket));
         }
+        return ticketView;
     }
 
     /*public void modificarFuncion(int idFuncion, String fechaHora, String nombre, int duracionMin, double precio) {

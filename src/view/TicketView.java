@@ -25,7 +25,7 @@ public class TicketView {
     public String toString() {
 
         return
-                "DNIComprador : " + DNIComprador +
+                "\n\nDNIComprador : " + DNIComprador +
                 ", medioDePago : " + medioDePago.getClass().getName().substring(7) +
                 ", \nitemFacturas : " + itemFacturas +
                 ", \ntotal : " + total;

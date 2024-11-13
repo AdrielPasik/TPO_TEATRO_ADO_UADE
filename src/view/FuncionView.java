@@ -28,12 +28,12 @@ public class FuncionView {
     @Override
     public String toString() {
         return
-                "\nid=" + id +
-                ", fechaHora='" + fechaHora + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", duracionMin=" + duracionMin +
-                ", precio=" + precio +
-                ", grupo=" + grupo;
+                "\nid : " + id +
+                ", fechaHora : '" + fechaHora + '\'' +
+                ", nombre : '" + nombre + '\'' +
+                ", duracionMin : " + duracionMin +
+                ", precio : " + precio +
+                ", grupo : " + GrupoView.map(grupo);
     }
 
 }

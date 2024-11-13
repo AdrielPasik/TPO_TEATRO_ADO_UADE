@@ -225,23 +225,22 @@ public class Menu {
     }
 
     private void mostrarTicketsVendidos() {
-        // Llamada al controlador para mostrar los tickets vendidos
-        // Ejemplo: TeatroController.getInstance().mostrarTicketsVendidos();
-
-        System.out.println("Mostrando tickets vendidos...");
+        System.out.println("---------------------Tickets vendidos-------------------");
+        System.out.println(teatroAdminController.getListaTicket());
     }
 
     private void asignarGrupoFuncion() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese el nombre de la función: ");
-        String nombreFuncion = scanner.nextLine();
+        System.out.print("Ingrese el id de la función: ");
+        int idFuncion = scanner.nextInt();
 
-        System.out.print("Ingrese el nombre del grupo: ");
-        String nombreGrupo = scanner.nextLine();
+        System.out.println(teatroAdminController.getListaGrupos());
 
-        // Llamada al controlador para asignar el grupo a la función
-        // Ejemplo: TeatroController.getInstance().asignarGrupo(nombreFuncion, nombreGrupo);
+        System.out.print("Ingrese el id del grupo: ");
+        int idGrupo = scanner.nextInt();
+
+        teatroAdminController.asignarGrupoAFuncion(idGrupo,idFuncion);
 
         System.out.println("Grupo asignado con éxito.");
     }

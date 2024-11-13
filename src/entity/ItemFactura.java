@@ -14,6 +14,6 @@ public class ItemFactura {
         return
                 "\nFuncion : " + funcion.getNombre() +
                 ", Horario inicio : " + funcion.getFechaHora()+
-                "idAsiento : " + idAsiento ;
+                ", idAsiento : " + idAsiento ;
     }
 }

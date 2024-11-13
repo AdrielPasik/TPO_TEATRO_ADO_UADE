@@ -102,6 +102,8 @@ public class TeatroHandler {
            this.ocuparAsiento(item.getFuncion().getId(), item.getIdAsiento());
        }
 
+       this.teatro.getTicketsVendidos().add(ticket);
+
        this.cache.clear();
 
         return ticket;
@@ -117,7 +119,7 @@ public class TeatroHandler {
     }
 
     public List<Ticket> getTickets() {
-        return null;
+        return this.teatro.getTicketsVendidos();
     }
 
     private int getNextIdGrupo(){
