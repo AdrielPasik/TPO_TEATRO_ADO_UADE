@@ -27,6 +27,7 @@ public class Ticket {
             int idAsiento = item.getIdAsiento();
             total +=  item.getFuncion().obtenerAsiento(idAsiento).costo(precioFuncion);
         }
+        total = this.medioDePago.calcularMonto(total);
         return total;
     }
 }

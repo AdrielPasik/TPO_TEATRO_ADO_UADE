@@ -153,11 +153,27 @@ public class Menu {
 
     private void pagar() {
         Scanner scanner = new Scanner(System.in);
-        int idFuncion = scanner.nextInt();
-        System.out.println("Lista de asientos disponibles...");
-        List<AsientoView> asientosLibres =  teatroUserController.mostrarAsientosLibres(idFuncion);
-        System.out.println(asientosLibres);
-        scanner.close();
+        System.out.print("Ingrese su DNI: ");
+        int dni = scanner.nextInt();
+        System.out.println("Eliga su medio de pago");
+        System.out.println("""
+                    1. EFECTIVO
+                    2. DEBITO
+                    3. CREDITO
+                    """);
+        int idMedioPago = pedirOpcion(scanner, 1, 3);
+
+        int cantCuotas = 0;
+        if(idMedioPago == 3){
+            System.out.print("Eliga la cantidad de cuotas (2,3,6) :");
+            cantCuotas = scanner.nextInt();
+            while(cantCuotas != 2 || cantCuotas != 3 || cantCuotas != 6) {
+                System.out.println("Error, eliga la cantidad de cuotas (2,3,6) :");
+                cantCuotas = scanner.nextInt();
+            }
+        }
+
+        System.out.println(teatroUserController.generarTicket(dni,idMedioPago,cantCuotas));
     }
 
     private void agregarFuncion() {

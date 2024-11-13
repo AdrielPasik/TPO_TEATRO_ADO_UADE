@@ -40,11 +40,9 @@ public class TeatroUserController {
         return TeatroHandler.getInstance().selecionarEntrada(idFuncion, idAsiento);
     }
 
-    /*public TicketView generarTicket(int DNIComprador, int idMedioPago, int idFuncion, int idAsiento) {
-        TeatroHandler handler = TeatroHandler.getInstance();
-        handler.ocuparAsiento(idFuncion, idAsiento);
-        Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
-    }*/
-
+    public TicketView generarTicket(int DNIComprador, int idMedioPago, int cantCuota) {
+        Ticket ticket = TeatroHandler.getInstance().generarTicket(DNIComprador, idMedioPago, cantCuota);
+        return TicketView.map(ticket);
+    }
 
 }

@@ -21,6 +21,7 @@ public class TeatroHandler {
 
     private TeatroHandler() {
         this.teatro = new Teatro("TEATRO COLON", "AV.CORRIENTES 2433, CABA", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+        this.cache = new ArrayList<>();
     }
 
     public void agregarGrupo(String nombre, String detalle){
@@ -52,6 +53,8 @@ public class TeatroHandler {
         Funcion funcion = this.getFuncionByid(idFuncion);
         resultado = funcion.estaLibre(idAsiento);
 
+        this.cache.add(new ItemFactura(idAsiento, funcion));
+
         return resultado;
     }
 
@@ -78,7 +81,8 @@ public class TeatroHandler {
         // Asignamos los asientos creados a la función.
         funcion.setAsientos(asientos);
     }
-   public Ticket generarTicket(int DNIComprador, int idMediopago, int cantCuota, int idFuncion, int idAsiento) {
+
+   public Ticket generarTicket(int DNIComprador, int idMediopago, int cantCuota) {
         
         MedioDePago medioDePago = null;
 
@@ -96,6 +100,8 @@ public class TeatroHandler {
        for (ItemFactura item : this.cache) {
            this.ocuparAsiento(item.getFuncion().getId(), item.getIdAsiento());
        }
+
+       this.cache.clear();
 
         return ticket;
     }
