@@ -23,12 +23,6 @@ public class TeatroUserController {
         return funcionesView;
     }
 
-    /*public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
-    TeatroHandler handler = TeatroHandler.getInstance();
-    handler.ocuparAsiento(idFuncion, idAsiento);
-    Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
-    }*/
-
     public List<AsientoView> mostrarAsientosLibres(int idFuncion) {
         List<AsientoView> asientosView = new ArrayList<>();
         Funcion funcion = TeatroHandler.getInstance().getFuncionByid(idFuncion);
@@ -41,6 +35,15 @@ public class TeatroUserController {
         return asientosView;
     }
 
+    public boolean seleccionarEntrada(int idFuncion, int idAsiento) {
+        return TeatroHandler.getInstance().selecionarEntrada(idFuncion, idAsiento);
+    }
+
+    /*public void comprarEntrada(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
+    TeatroHandler handler = TeatroHandler.getInstance();
+    handler.ocuparAsiento(idFuncion, idAsiento);
+    Ticket ticket = handler.generarTicket(DNIComprador, medioDePago, idFuncion, idAsiento);
+    }*/
 
 
 }

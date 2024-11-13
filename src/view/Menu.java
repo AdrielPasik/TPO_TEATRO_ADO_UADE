@@ -135,11 +135,20 @@ public class Menu {
     }
 
     private void seleccionarEntrada() {
-        // Llamada al controlador para comprar entrada
-        // Ejemplo: TeatroController.getInstance().comprarEntrada();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el id de la funcion que desea comprar:");
+        int idFuncionn = scanner.nextInt();
+        System.out.print("Ingrese el id del asiento desea comprar:");
+        int idAsiento = scanner.nextInt();
 
-        System.out.println("Proceso de compra de entrada...");
-        // Aquí se implementaría el flujo de compra
+        while (!teatroUserController.seleccionarEntrada(idFuncionn, idAsiento)){
+            System.out.println("El asiento no existe o ya esta seleccionado/ocupado");
+            System.out.print("Ingrese el id de la funcion que desea comprar:");
+            idFuncionn = scanner.nextInt();
+            System.out.print("Ingrese el id del asiento desea comprar:");
+            idAsiento = scanner.nextInt();
+        }
+        System.out.println("Asiento seleccionado");
     }
 
     private void pagar() {

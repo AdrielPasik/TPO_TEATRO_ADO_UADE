@@ -8,6 +8,7 @@ public class TeatroHandler {
 
     private static TeatroHandler instance;
     private Teatro teatro;
+    private List<ItemFactura> cache;
     private static int grupoContador = 0;
     private static int funcionContador = 0;
 
@@ -39,6 +40,21 @@ public class TeatroHandler {
         teatro.agregarFuncion(f);
     }
 
+    public boolean selecionarEntrada(int idFuncion, int idAsiento){
+
+        boolean resultado;
+        for(ItemFactura item: this.cache){
+            if (item.getFuncion().getId() == idFuncion && item.getIdAsiento() == idAsiento) {
+                resultado = false;
+                break;
+            }
+        }
+        Funcion funcion = this.getFuncionByid(idFuncion);
+        resultado = funcion.estaLibre(idAsiento);
+
+        return resultado;
+    }
+
     public List<Asiento> asientosLibres(){
         return teatro.getAsientosDesocupados();
     }
@@ -66,11 +82,11 @@ public class TeatroHandler {
         // Asignamos los asientos creados a la función.
         funcion.setAsientos(asientos);
     }
-    public Ticket generarTicket(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
+    /*public Ticket generarTicket(int DNIComprador, MedioDePago medioDePago, int idFuncion, int idAsiento) {
         Ticket ticket = new Ticket(DNIComprador, medioDePago, idFuncion, idAsiento);
         //tickets.add(ticket);
         return ticket;
-    }
+    }*/
 
     public List<Funcion> getFunciones(){
         return teatro.getFunciones();

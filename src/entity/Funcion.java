@@ -37,5 +37,21 @@ public class Funcion {
         return asientos;
     }
 
+    public Asiento obtenerAsiento(int idAsiento){
+        for(Asiento asiento: this.asientos){
+            if(asiento.getIdAsiento() == idAsiento){
+                return asiento;
+            }
+        }
+        return null;
+    }
+
+    public boolean estaLibre(int idAsiento){
+        boolean estaLibre = false;
+        if(this.obtenerAsiento(idAsiento) != null && this.obtenerAsiento(idAsiento).isLibre()){
+            estaLibre = true;
+        }
+        return estaLibre;
+    }
 
 }
